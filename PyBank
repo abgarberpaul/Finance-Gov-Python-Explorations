@@ -8,3 +8,29 @@ csvpath = os.path.join("PyBank", "Resources", "BudgetData.csv")
 # Open the CSV
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
+
+    #read the header row first
+
+    csv_header = next(csvreader)
+    print(f"CSV Header: {csv_header}")
+    
+    #read each row of data after the header
+    for row in csvreader:
+            print(row)
+
+    #define the function 
+    #def PyBank(Bank_data):
+    #assign values to variables
+     #   Date = str(Bank_data[0])
+      #  Profit/Loss = int(Bank_data[1])
+
+
+    # Loop through the remaining rows looking for the value of the dates
+    #len("Date")    
+
+
+    #define tracking categories
+    #for row in csvreader:
+     #   total = sum((row(1))
+      #  print (total)
+    
