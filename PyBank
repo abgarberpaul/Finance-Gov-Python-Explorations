@@ -5,7 +5,12 @@ import csv
 # Set path for file
 csvpath = os.path.join("PyBank", "Resources", "BudgetData.csv")
 
-# Open the CSV
+# Lists to store the data
+Date = []
+Profit_Loss = []
+Net = 0
+
+#Open the CSV
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
@@ -15,22 +20,36 @@ with open(csvpath) as csvfile:
     print(f"CSV Header: {csv_header}")
     
     #read each row of data after the header
-    for row in csvreader:
-            print(row)
-
-    #define the function 
-    #def PyBank(Bank_data):
-    #assign values to variables
-     #   Date = str(Bank_data[0])
-      #  Profit/Loss = int(Bank_data[1])
-
-
-    # Loop through the remaining rows looking for the value of the dates
-    #len("Date")    
-
-
-    #define tracking categories
-    #for row in csvreader:
-     #   total = sum((row(1))
-      #  print (total)
+    for row in csvreader:              
+        Date.append(row[0])
+        Profit_Loss.append(int(row[1]))
+        
+    print(Date)
+    print(Profit_Loss)
+    x = len(Date)
+    y = sum(Profit_Loss)
+    print("total months: ")
+    print(x)
+    print("total profit: ")
+    print(y)
     
+    #define the function 
+    #def PyBank(Bank_data)
+
+    # Loop through the remaining rows looking for the following values: 
+        # Total number of months in data set
+
+        # Net total amount of "Profit/ Losses" over the entire period
+
+        # Average of the changes "Profit/Losses" over the entire period
+            #def average(numbers):
+            #length = len(numbers)
+                #total = 0.0
+                #for number in numbers:
+                    #total += number
+                #return total / length
+
+        # The greatest increase in profits (date and amount) over the entire period
+
+        # The greatest decrease in losses (date and amount) over the entire period
+
