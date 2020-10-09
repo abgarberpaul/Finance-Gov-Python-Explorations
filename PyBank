@@ -8,7 +8,8 @@ csvpath = os.path.join("PyBank", "Resources", "BudgetData.csv")
 # Lists to store the data
 Date = []
 Profit_Loss = []
-Net = 0
+Avg_Change = []
+Change_Start = 0
 
 #Open the CSV
 with open(csvpath) as csvfile:
@@ -23,16 +24,29 @@ with open(csvpath) as csvfile:
     for row in csvreader:              
         Date.append(row[0])
         Profit_Loss.append(int(row[1]))
+        Change_Net = csvreader.row(0)-Change_Start
+            #write Change value at this step into a list Avg_Change
+        Avg_Change.append(Change_Net)
+        Change_Start = row(0)
+
         
     print(Date)
     print(Profit_Loss)
     x = len(Date)
     y = sum(Profit_Loss)
+    z = sum(Avg_Change)
+    i = len(Avg_Change)
+#   z = sum(Avg_Change)/len(Avg_Change)
+#     
     print("total months: ")
     print(x)
     print("total profit: ")
     print(y)
-    
+    print("average change SUM is ")
+    print(z)
+    print("average change LEN is ")
+    print(i)
+
     #define the function 
     #def PyBank(Bank_data)
 
@@ -53,3 +67,23 @@ with open(csvpath) as csvfile:
 
         # The greatest decrease in losses (date and amount) over the entire period
 
+        # Your final script should both print the analysis to the terminal and export a text file with the results
+
+# CODE FROM SOLUTIONS
+# Zip lists together:
+
+#cleaned_csv = zip(title, price, subscribers, reviews, review_percent, length)
+
+# Set variable for output file
+#output_file = os.path.join("web_final.csv")
+
+#  Open the output file
+#with open(output_file, "w") as datafile:
+ #   writer = csv.writer(datafile)
+
+    # Write the header row
+#    writer.writerow(["Title", "Course Price", "Subscribers", "Reviews Left",
+#                     "Percent of Reviews", "Length of Course"])
+
+    # Write in zipped rows
+#    writer.writerows(cleaned_csv)
