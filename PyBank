@@ -8,64 +8,74 @@ csvpath = os.path.join("PyBank", "Resources", "BudgetData.csv")
 # Lists to store the data
 Date = []
 Profit_Loss = []
-Avg_Change = []
-Change_Start = 0
+Change = []
 
 #Open the CSV
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
     #read the header row first
-
     csv_header = next(csvreader)
     print(f"CSV Header: {csv_header}")
-    
-    #read each row of data after the header
+
+    #read each row of data after the header, fill the lists for Date and Profit_Loss, 
     for row in csvreader:              
         Date.append(row[0])
         Profit_Loss.append(int(row[1]))
-        Change_Net = csvreader.row(0)-Change_Start
-            #write Change value at this step into a list Avg_Change
-        Avg_Change.append(Change_Net)
-        Change_Start = row(0)
 
+    # Turn the two lists into an array
+    Matrix = [[Date[i], Profit_Loss[i]] for i in range(len(Profit_Loss))]
+
+    # Find the Greatest Increase and Decrease with the associated ticker ("month-year")
+
+     # * NOT WORKING - ERROR LN 34* <<<<<<<<<<<<<<<<
+    large = Matrix[1][1]
+    small = Matrix[1][1]
+    For i in range(len(Matrix[1]))
+       if Matrix[i][1] >= large
+           large = Matrix[i]
+
+#      elif i < smallest
+#           s = k 
+#           d_ticker = csvreader(row[0])
         
-    print(Date)
-    print(Profit_Loss)
+    #CHECK IF IT'S WORKING:
+    #print(Date)
+    #print(Profit_Loss)
+    #print(Matrix)
+    
+    #store the number of months
     x = len(Date)
+
+    #store the net total Profit/Loss
     y = sum(Profit_Loss)
-    z = sum(Avg_Change)
-    i = len(Avg_Change)
-#   z = sum(Avg_Change)/len(Avg_Change)
-#     
-    print("total months: ")
-    print(x)
-    print("total profit: ")
-    print(y)
-    print("average change SUM is ")
-    print(z)
-    print("average change LEN is ")
-    print(i)
 
-    #define the function 
-    #def PyBank(Bank_data)
+    #convert net total to currency
+    Net = "${:,.2f}".format(y)
 
-    # Loop through the remaining rows looking for the following values: 
-        # Total number of months in data set
+    #find the changes between items (list), and total number of changes
+    Change = [Profit_Loss[i+1]-Profit_Loss[i] for i in range(len(Profit_Loss)-1)]
+    
+    #Avg_Change = [sum(Change) / Total Changes]
+    z = sum(Change)
+    t = len(Change)
+    Avg_Change = round((z/t), 2)
 
-        # Net total amount of "Profit/ Losses" over the entire period
 
-        # Average of the changes "Profit/Losses" over the entire period
-            #def average(numbers):
-            #length = len(numbers)
-                #total = 0.0
-                #for number in numbers:
-                    #total += number
-                #return total / length
+    print(" Financial Analysis")
+    print(" -------------------------")
+    print(f" Total months: {x}")
+    print(f" Total profit: {Net}")
+    print(f" Average Change: {Avg_Change}")
+ #   print(f" Greatest Increase in Profits: {large}")
+  #  print(f" Greatest Decrease in Profits: {d_ticker} {decrease}")
+
 
         # The greatest increase in profits (date and amount) over the entire period
 
         # The greatest decrease in losses (date and amount) over the entire period
+        #   minimum = min(LIST OF CHANGE)
+        #   print(minimum)
 
         # Your final script should both print the analysis to the terminal and export a text file with the results
 
