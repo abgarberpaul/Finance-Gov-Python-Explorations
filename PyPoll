@@ -51,10 +51,4 @@ with open(csvpath) as csvfile:
     print("Winner: working on it ")
 
 
-#dictionary = {
-#   "Name" : "Blake"
-# }
-#Test - Fales
-#if name in dictionary.??(): "Name"
-#    test = True
-#if not update dictionary
+
