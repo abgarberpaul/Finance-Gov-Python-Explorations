@@ -32,14 +32,8 @@ with open(csvpath) as csvfile:
             candidatelist[candidate] += 1
     
     print(candidatelist)
-    # find percentage of votes
-    #for candidate in candidatelist:
-    #    print(candidate)
-        #vote_percent = (candidatelist[1]/[vote_count])
-    
-    # for candidate in candidatelist:
-    #    vote_percent = candidatelist({candidate : 2}) / vote_count
-    #    candidatelist.update({candidate : 3})
+
+    # find percentage of votes - do it 
 
 print("Election Results")
 print("---------------------------")
@@ -67,7 +61,4 @@ with open(output_path, 'w') as csvfile:
     for candidate in candidatelist:
         csvfile.write(f"{candidate}: {(candidatelist[candidate]/vote_count)*100:.3f}% ({candidatelist[candidate]})\n")
     csvfile.write("---------------------------\n")   
-    csvfile.write(f"Winner: {winner_candidate}\n")
-
-
-
+    csvfile.write(f"Winner: {winner_candidate}\n")    
