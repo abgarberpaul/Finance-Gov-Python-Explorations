@@ -27,8 +27,6 @@ with open(csvpath) as csvfile:
     for row in csvreader: 
         vote_count = vote_count + 1
         candidate = row[2]    
-#        candidate_name != candidates
-#            candidates.update(Name: candidate_name)
         
         if not candidate in candidatelist:
                 candidatelist.update({candidate : 1})
@@ -36,15 +34,12 @@ with open(csvpath) as csvfile:
         else:
             candidatelist[candidate] += 1
 
-
+    print("Election Results")
+    print("---------------------------")
+    print(f"Total Votes: {vote_count}")
+    print("---------------------------")
     print(candidatelist)
-    print(vote_count)
+    print("---------------------------")
+    print("Winner: working on it ")
 
 
-#dictionary = {
-#   "Name" : "Blake"
-# }
-#Test - Fales
-#if name in dictionary.??(): "Name"
-    test = True
-#if not update dictionary
