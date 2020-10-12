@@ -1,0 +1,50 @@
+#DICTIONARY WILL BE THE SOLUTION
+    #how to test values in a dictionary? 
+
+
+# Modules
+import os
+import csv
+
+#set variables
+vote_count = 0
+vote = 0
+
+#set empty dictionary
+candidatelist = {}
+
+# Set path for file
+csvpath = os.path.join("PyPoll", "Resources", "PyPollData.csv")
+
+#Open the CSV
+with open(csvpath) as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=",")
+
+    #read the header row first
+    csv_header = next(csvreader)
+    print(f"CSV Header: {csv_header}")
+
+    for row in csvreader: 
+        vote_count = vote_count + 1
+        candidate = row[2]    
+#        candidate_name != candidates
+#            candidates.update(Name: candidate_name)
+        
+        if not candidate in candidatelist:
+                candidatelist.update({candidate : 1})
+
+        else:
+            candidatelist[candidate] += 1
+
+
+    print(candidatelist)
+    print(vote_count)
+
+
+#dictionary = {
+#   "Name" : "Blake"
+# }
+#Test - Fales
+#if name in dictionary.??(): "Name"
+    test = True
+#if not update dictionary
