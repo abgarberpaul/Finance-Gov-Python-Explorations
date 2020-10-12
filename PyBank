@@ -46,8 +46,8 @@ with open(csvpath) as csvfile:
 print("Financial Analysis")
 print("-----------------------------")
 print("Total Month: " + str(total_month))
-print("Total: " + str(total_profit))
-print("Avg Change: " + str(total_change/(total_month-1)))
+print(f"Total: $ {total_profit:.2f}")
+print(f"Avg Change: $ {total_change/(total_month-1):.2f}")
 print("Greatest Increase in Profits: " + greatest_increase_month + " " + str(greatest_increase))
 print("Greatest Decrease in profits: " + greatest_decrease_month + " " + str(greatest_decrease))
 
